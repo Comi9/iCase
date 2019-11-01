@@ -78,25 +78,66 @@ body
       border-radius: 30px
       z-index: 100
 
-  .view
-    display: flex
-    width: 100%
-    height: 100%
-    background-color: transparent
-    border-radius: 30px
-    &.safe-area
-      padding: 40px 0 30px
+  .ringtone
+    position: absolute
+    top: 100px
+    left: -26px
+    width: 6px
+    height: 34px
+    background: black
+    border-top-left-radius: $phisical-buttons-radius
+    border-bottom-left-radius: $phisical-buttons-radius
 
-    .scroll-view
-      border-radius: 30px
-      width: 100%
-      overflow: hidden scroll
-      scrollbar-width: none
+  .volume-up
+    position: absolute
+    top: 162px
+    left: -26px
+    width: 6px
+    height: 60px
+    background: black
+    border-top-left-radius: $phisical-buttons-radius
+    border-bottom-left-radius: $phisical-buttons-radius
+
+  .volume-down
+    position: absolute
+    top: 232px
+    left: -26px
+    width: 6px
+    height: 60px
+    background: black
+    border-top-left-radius: $phisical-buttons-radius
+    border-bottom-left-radius: $phisical-buttons-radius
+
+  .power
+    position: absolute
+    top: 162px
+    right: -26px
+    width: 6px
+    height: 100px
+    background: black
+    border-top-right-radius: $phisical-buttons-radius
+    border-bottom-right-radius: $phisical-buttons-radius
+
 
   .view
     &.safe-area
       .scroll-view
         border-radius: 0
+
+  .view
+    display: flex
+    width: 100%
+    height: 100%
+    background-color: transparent
+    border-radius: 36px
+    &.safe-area
+      padding: 40px 0 30px
+
+    .scroll-view
+      border-radius: 36px
+      width: 100%
+      overflow: hidden scroll
+      scrollbar-width: none
 
     .content
       display: flex

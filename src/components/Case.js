@@ -27,6 +27,10 @@ class Case extends Component {
           </div>
         </div>
         <div className='button'></div>
+        <div className='ringtone'></div>
+        <div className='volume-up'></div>
+        <div className='volume-down'></div>
+        <div className='power'></div>
       </div>
     )
 
