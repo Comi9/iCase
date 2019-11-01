@@ -1,19 +1,50 @@
 import React, { Component } from 'react'
-import { Switch } from '@blueprintjs/core'
+import { Button, Switch } from '@blueprintjs/core'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import _ from 'lodash'
 
 class Case extends Component {
   constructor() {
     super()
 
-    this.handlePublicChange = this.handlePublicChange.bind(this)
-    this.state = { safeAreaView: false }
+    this.getLocalStorageKeys = this.getLocalStorageKeys.bind(this)
+    this.setLocalStorageKey = this.setLocalStorageKey.bind(this)
+    this.handleLocalStorageKeys = this.handleLocalStorageKeys.bind(this)
+    this.resetLocalStorageKeys = this.resetLocalStorageKeys.bind(this)
+    this.handleSafeAreaViewChange = this.handleSafeAreaViewChange.bind(this)
+    this.state = {
+      safeAreaView: false
+    }
   }
 
-  handlePublicChange() { this.setState({ safeAreaView: !this.state.safeAreaView }) }
+  componentDidMount() { this.getLocalStorageKeys() }
+
+  resetLocalStorageKeys() { reactLocalStorage.clear() }
+
+  getLocalStorageKeys() { this.handleLocalStorageKeys(reactLocalStorage.get('iCaseAppLocalSettings')) }
+
+  setLocalStorageKey(key) {
+    const value = !reactLocalStorage.getObject('iCaseAppLocalSettings')[key]
+    reactLocalStorage.setObject('iCaseAppLocalSettings', { [key]: value })
+  }
+
+  handleLocalStorageKeys(localKeys) {
+    _.each(JSON.parse(localKeys), (value, key) => {
+      this.setState({ [key]: value })
+    })
+  }
+
+  handleSafeAreaViewChange() {
+    this.setLocalStorageKey('safeAreaView')
+    this.getLocalStorageKeys()
+  }
 
   render() {
     const _switch = (
-      <Switch checked={this.state.safeAreaView} label="SafeAreaView" onChange={this.handlePublicChange} />
+      <>
+        <Button icon="refresh" onClick={this.resetLocalStorageKeys} />
+        <Switch checked={this.state.safeAreaView} label="SafeAreaView" onChange={this.handleSafeAreaViewChange} />
+      </>
     )
 
     const iCase = (
