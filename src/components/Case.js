@@ -1,49 +1,27 @@
 import React, { Component } from 'react'
 import { Button, Switch } from '@blueprintjs/core'
-import { reactLocalStorage } from 'reactjs-localstorage'
-import _ from 'lodash'
+
+const DEFAULT_LOCAL_KEYS = {
+  safeAreaView: false
+}
 
 class Case extends Component {
   constructor() {
     super()
 
-    this.getLocalStorageKeys = this.getLocalStorageKeys.bind(this)
-    this.setLocalStorageKey = this.setLocalStorageKey.bind(this)
-    this.handleLocalStorageKeys = this.handleLocalStorageKeys.bind(this)
-    this.resetLocalStorageKeys = this.resetLocalStorageKeys.bind(this)
     this.handleSafeAreaViewChange = this.handleSafeAreaViewChange.bind(this)
-    this.state = {
-      safeAreaView: false
-    }
+    this.state = { ...DEFAULT_LOCAL_KEYS }
   }
 
-  componentDidMount() { this.getLocalStorageKeys() }
+  componentDidUpdate(prevProps, prevState) { localStorage.state = JSON.stringify(this.state) }
 
-  resetLocalStorageKeys() { reactLocalStorage.clear() }
-
-  getLocalStorageKeys() { this.handleLocalStorageKeys(reactLocalStorage.get('iCaseAppLocalSettings')) }
-
-  setLocalStorageKey(key) {
-    const value = !reactLocalStorage.getObject('iCaseAppLocalSettings')[key]
-    reactLocalStorage.setObject('iCaseAppLocalSettings', { [key]: value })
-  }
-
-  handleLocalStorageKeys(localKeys) {
-    _.each(JSON.parse(localKeys), (value, key) => {
-      this.setState({ [key]: value })
-    })
-  }
-
-  handleSafeAreaViewChange() {
-    this.setLocalStorageKey('safeAreaView')
-    this.getLocalStorageKeys()
-  }
+  handleSafeAreaViewChange() { this.setState({ safeAreaView: !this.state.safeAreaView }) }
 
   render() {
     const _switch = (
       <>
-        <Button icon="refresh" onClick={this.resetLocalStorageKeys} />
-        <Switch checked={this.state.safeAreaView} label="SafeAreaView" onChange={this.handleSafeAreaViewChange} />
+        <Button icon='refresh' />
+        <Switch checked={this.state.safeAreaView} label='SafeAreaView' onChange={this.handleSafeAreaViewChange} />
       </>
     )
 
