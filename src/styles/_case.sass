@@ -1,0 +1,105 @@
+::-webkit-scrollbar
+  width: 0px
+  background: transparent
+
+body
+  display: flex
+  width: 100%
+  height: 100%
+  background-color: whitesmoke
+  margin: 0
+  padding: 0
+  justify-content: center
+  align-items: center
+
+.phone
+  display: flex
+  position: relative
+  border-radius: 56px
+  width: 414px
+  height: 852px
+  background-color: white
+  border: 20px solid black
+
+  .notch
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    margin: auto
+    width: 56%
+    height: 30px
+    background-color: black
+    border-bottom-left-radius: 20px
+    border-bottom-right-radius: 20px
+    z-index: 100
+
+    .notch-top-left-corner
+      height: 30px
+      width: 30px
+      bottom: 0
+      position: absolute
+      overflow: hidden
+      left: -30px
+      transform: rotate(180deg)
+
+    .notch-top-left-corner::before
+      content: ''
+      display: block
+      height: 100%
+      border-radius: 0  0 0 20%
+      box-shadow: 0 0 0 10px black
+
+    .notch-top-right-corner
+      height: 30px
+      width: 30px
+      bottom: 0
+      position: absolute
+      overflow: hidden
+      right: -30px
+      transform: rotate(90deg)
+
+    .notch-top-right-corner::after
+      content: ''
+      display: block
+      height: 100%
+      border-radius: 0  0 0 20%
+      box-shadow: 0 0 0 10px black
+
+  .button
+      position: absolute
+      bottom: 8px
+      left: 0
+      right: 0
+      margin: auto
+      width: 36%
+      height: 5px
+      background-color: black
+      border-radius: 30px
+      z-index: 100
+
+  .view
+    display: flex
+    width: 100%
+    height: 100%
+    background-color: transparent
+    border-radius: 30px
+    &.safe-area
+      padding: 40px 0 20px
+
+    .scroll-view
+      border-radius: 30px
+      width: 100%
+      overflow: hidden scroll
+      scrollbar-width: none
+
+  .view
+    &.safe-area
+      .scroll-view
+        border-radius: 0
+
+  .content
+    display: flex
+    width: 100%
+    height: 200vh
+    background-color: red
