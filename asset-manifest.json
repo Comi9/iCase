@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/iCase/static/css/main.78dc6f24.chunk.css",
+    "main.js": "/iCase/static/js/main.e2ec299c.chunk.js",
+    "main.js.map": "/iCase/static/js/main.e2ec299c.chunk.js.map",
+    "runtime-main.js": "/iCase/static/js/runtime-main.526d2c6a.js",
+    "runtime-main.js.map": "/iCase/static/js/runtime-main.526d2c6a.js.map",
+    "static/css/2.59a261c3.chunk.css": "/iCase/static/css/2.59a261c3.chunk.css",
+    "static/js/2.895d9916.chunk.js": "/iCase/static/js/2.895d9916.chunk.js",
+    "static/js/2.895d9916.chunk.js.map": "/iCase/static/js/2.895d9916.chunk.js.map",
+    "index.html": "/iCase/index.html",
+    "precache-manifest.2a3ac6acf4e72457fedbac36ec775616.js": "/iCase/precache-manifest.2a3ac6acf4e72457fedbac36ec775616.js",
+    "service-worker.js": "/iCase/service-worker.js",
+    "static/css/2.59a261c3.chunk.css.map": "/iCase/static/css/2.59a261c3.chunk.css.map",
+    "static/css/main.78dc6f24.chunk.css.map": "/iCase/static/css/main.78dc6f24.chunk.css.map",
+    "static/media/index.sass": "/iCase/static/media/icons-20.cef8cdbb.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.526d2c6a.js",
+    "static/css/2.59a261c3.chunk.css",
+    "static/js/2.895d9916.chunk.js",
+    "static/css/main.78dc6f24.chunk.css",
+    "static/js/main.e2ec299c.chunk.js"
+  ]
+}
